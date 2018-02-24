@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <!-- Part 1 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>JQuery Assignment 7</title>
+</head>
+
+<body>
+  <div id="body"></div>
+  <div><ul id="flower-items">
+			<li>
+				<a href="../../petal/images/710_purple_calla_lilies_144723256.jpg">
+					<span class="img"><img src="../../petal/images/160_calla_blush_160337318.jpg" width="160" height="160" alt="Calla Lily"  title="A beautiful arrangement of lilies" /></span>
+					<h4>Calla Lilies</h4>
+					<!-- Blush, Yellow, Pink, Purple -->
+					<p class="price reset">$3.00 per stem</p>
+					
+					<div class="info">
+					These are fine flowers.
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="../../petal/images/lightbox_Erick_Durham.jpg">
+					<span class="img"><img src="../../petal/images/160_sunflower_146748795.jpg" width="160" height="160" alt="Sunflower" title="Sunflowers and friends in a vase" /></span>
+					<h4>Sunflower</h4>
+					<!-- One Color -->
+					<p class="price reset">$3.00 per stem</p>
+					
+					<div class="info">
+					These are the ones that produce every baseball player's favorite seeds.
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="../../petal/images/lightbox_Laurel_Foucher.jpg">
+					<span class="img"><img src="../../petal/images/160_iris_purple_121549009.jpg" width="160" height="160" alt="Purple Iris" title="Purple iris of Cairo. Or is it a rose?" /></span>
+					<h4>Iris</h4>
+					<!-- One Color -->
+					<p class="price reset">$2.00 per stem</p>
+										
+					<div class="info">
+					These flowers are purple.  That's fun, right?!
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="../../petal/images/lightbox_Tamara_Alanwood.jpg">
+					<span class="img"><img src="../../petal/images/160_alstromeria_87519333.jpg" width="160" height="160" alt="Alstromeria"  title="Alstromeria, aka Peruvian Lilies" /></span>
+					<h4>Peruvian Lily</h4>
+					<!-- One Color -->
+					<p class="price reset">$2.00 per stem</p>
+					
+					<div class="info">
+					These are lilies, but from Peru. Maybe they have a Peruvian accent.
+					</div>
+				</a>
+			</li>
+			</ul>
+    </div>
+      <div>
+        <img src = "absol.jpg" id = "absol" alt= "absol">
+        <button type="button" id = "bttn">Click Me!</button>  
+      </div>
+
+  <script>
+    $(document).ready(function(){
+      'use strict';
+  
+      //part 1(continued)
+     console.log("welcome to 209.");
+     
+//create body
+       //part 2
+var p = document.createElement("p");
+var node = document.createTextNode("Jordan Rackley");
+p.appendChild(node);
+var div = document.getElementById("body");
+div.appendChild(p);
+      
+       //part 3
+var img = new Image();
+div.appendChild(img);
+
+      //set attributes
+p.id = "p1";
+div.id =  "div1";
+img.id =  "img1";
+img.src = "arcanine.jpg"
+img.alt = "Arcanine Art"
+
+ //part 3(cont)
+      //fadeout image on div click
+$("#div1").click(function(){
+$("#img1").fadeOut(1000);
+        
+    });
+
+  
+ //part 4
+    //create form data
+    
+    var form1 = document.createElement("form");
+insertAfter(form1, div);
+    
+      var formDiv1 = document.createElement("div");
+form1.appendChild(formDiv1);
+      var formNode1 = document.createTextNode("Name:  ");
+      formDiv1.appendChild(formNode1);
+      
+      
+      var formDiv2 =  document.createElement("div");
+form1.appendChild(formDiv2);
+      var formNode2 = document.createTextNode("Phone #:  ");
+      formDiv2.appendChild(formNode2);
+      
+      
+      var formDiv3 =  document.createElement("div");
+form1.appendChild(formDiv3);
+      var formNode3 = document.createTextNode("Fav Color:  ");
+      formDiv3.appendChild(formNode3);
+      
+    var formBox1 = document.createElement("input");
+formBox1.type="text";
+formDiv1.appendChild(formBox1);
+
+          var formBox2 = document.createElement("input");
+formBox2.type="text";
+formDiv2.appendChild(formBox2);
+      
+          var formBox3 = document.createElement("input");
+formBox3.type="text";
+formDiv3.appendChild(formBox3);
+ 
+
+    
+    //set form id/classes
+    
+    form1.id = "form";
+formDiv1.class = "group";
+formDiv2.class = "group";
+formDiv3.class = "group";
+
+      
+      var $form = $('#form');
+      $form.find('.group:nth-child(1)')
+		.addClass('error');
+
+          
+     	$form.find('.group:nth-child(2)')
+        .append('<p>This is a required field</p>')
+      
+	$form.find('.group:nth-child(3)')
+		.addClass('msg')
+		.append('<p>Good choice!</p>');
+      
+       //part 5
+      	var $flowers = $('#flower-items');
+	
+	$flowers
+    	.find('a')
+    	.colorbox({
+    		'rel' : 'gallery',
+    		'maxWidth' : '80%',
+			'transition' : 'fade',
+			'speed' : 150,
+			'opacity' : 0.3,
+			'slideshow' : true,
+            'slideshowAuto' : true;
+			'slideshowSpeed' : 3000,
+			'current' : 'arrangement {current} of {total}'
+    	});
+      
+      //part 6
+      //animate image on button click
+      var button = document.getElementById("bttn")
+      var img2 = document.getElementById("absol")
+$("#button").click(function(){
+$("#img2").animate({left: '500px', opacity: '0.5',}, swing);
+  
+        
+    });
+
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+      
+      var sheet = document.createElement('style')
+sheet.innerHTML = " form > div {padding: 10px;} .error {background: #ecc} .msg {background: #cec;}";
+document.body.appendChild(sheet);
+      });
+  </script>
+
+</body>
+
+</html>
